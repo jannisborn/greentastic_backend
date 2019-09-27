@@ -112,3 +112,6 @@ ENV/
 
 # VS Code
 *.vscode
+
+# keypairs
+*.keypair
