@@ -44,12 +44,12 @@ def query_directions():
     with open("metadata.json", "r") as infile:
         metadata = json.load(infile)
 
-    # Car type can be any of {0, 1, 2} where {0=petrol, 1=diesel, 2=electric}
-    car_type = request.args.get('car_type', 0)
+    # Car type can be any of {"Petrol", "Diesel", "Electric"}
+    car_type = request.args.get('car_type', "Petrol")
     metadata['driving']['emissionsProKM'] = metadata['driving'][
         'emissionsProKM'][car_type]
     metadata['driving']['toxicityPerKM'] = metadata['driving'][
-            'toxicityPerKM'][car_type]
+        'toxicityPerKM'][car_type]
 
     # Compute scores from google maps data
     out_dic = compute_score(metadata, googlemapsdic, weights=weighting)

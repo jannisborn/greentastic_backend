@@ -2,16 +2,16 @@
     "driving": {
         "price_benzin": 1.7,
         "priceKm": 1.33,
-        "emissionsProKM": [
-            0.19,
-            0.16,
-            0.13
-        ],
-        "toxicityPerKM":[
-            0.32,
-            0.25,
-            0.2
-        ],
+        "emissionsProKM": {
+            "Petrol": 0.19,
+            "Diesel": 0.16,
+            "Electric": 0.13
+        },
+        "toxicityPerKM": {
+            "Petrol": 0.32,
+            "Diesel": 0.25,
+            "Electric": 0.2
+        },
         "caloriesPerMin": 2,
         "maps_key": "driving"
     },
