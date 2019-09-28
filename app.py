@@ -11,11 +11,13 @@ app = Flask(__name__)
 @app.route('/query_directions', methods=['GET'])  # api/get_messages
 def query_directions():
     weight_str = str(request.args.get('weights'))
-    weighting = [int(i) for i in weight_str.split(",")] # expects 'weights=1,1,1,1'
+    weighting = [int(i)
+                 for i in weight_str.split(",")]  # expects 'weights=1,1,1,1'
     print("WEIGHTS", weighting)
 
     source = str(request.args.get('source'))
-    destination = str(request.args.get('destination')) # 'dest_coordinates=bern straße xy'
+    destination = str(
+        request.args.get('destination'))  # 'dest_coordinates=bern straße xy'
     # source = (47.3857, 8.5668)
     # destination = (47.3649, 8.5469)
 
@@ -37,7 +39,6 @@ def query_directions():
     #     }
     # }
 
-
     # Load metadata from json file
     with open("metadata.json", "r") as infile:
         metadata = json.load(infile)
@@ -56,10 +57,9 @@ def query_autocomplete():
 
     # TODO: What data types are these?
     search_string = str(request.args.get('seach_string'))
-    user_location = request.args.get('user_location')
+    user_location = str(request.args.get('user_location'))
 
     return get_autocomplete(search_string, user_location)
-
 
 
 if __name__ == '__main__':
