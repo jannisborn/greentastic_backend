@@ -9,9 +9,8 @@ from datetime import datetime
 
 #%%
 # Setup Google API
-API_KEY = open(os.getcwd() + '/gpc_api_key.keypair', 'r').read()
+API_KEY = open(os.getcwd() + '/clean_commuter.keypair', 'r').read()
 GMAPS = GoogleMaps(API_KEY)
-now = datetime.now()
 
 
 def get_directions(query):
@@ -27,25 +26,31 @@ def get_directions(query):
     #for mode in ["driving", "walking", "bicycling", "transit"]:
     for mode in ["driving"]:
 
-        response[mode] = dict()
         directions = GMAPS.directions(start,
                                       end,
                                       mode=mode,
-                                      departure_time=now)
+                                      departure_time=datetime.now())
 
-        response[mode]['distance'] = directions[0]['legs'][0]['distance'][
-            'value']  # in meter
-        response[mode]['duration'] = directions[0]['legs'][0]['duration'][
-            'value']  # in seconds
+        # Allocate dict
+        response[mode] = dict()
+        response[mode]['distance'] = {mode: 0, "walking": 0}
+        response[mode]['duration'] = {mode: 0, "walking": 0}
+        response[mode]['coordinates'] = []
 
-        polys, locations = [], []
-
+        # Gather data (parse individual parts of the journey)
         for step in directions[0]['legs'][0]['steps']:
-            polys.append(step['polyline']['points'])
-            locations.extend(polyline.decode(polys[-1]))
 
-        response[mode]['polylines'] = polys
-        response[mode]['coordinates'] = locations
+            # Parse the polyline into GPS coordinates
+            response[mode]['coordinates'].extend(
+                polyline.decode(step['polyline']['points']))
+
+            # Update the distance and duration values
+            response[mode]['duration'][
+                step['travel_mode'].lower()] += step['duration']['value']
+            response[mode]['distance'][
+                step['travel_mode'].lower()] += step['distance']['value']
 
     return response
-    #%%
+
+
+#%%
