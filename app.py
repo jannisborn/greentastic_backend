@@ -11,7 +11,7 @@ app = Flask(__name__)
 #%%
 @app.route('/query_directions', methods=['GET'])  # api/get_messages
 def query_directions():
-    weight_str = str(request.args.get('weights', "1,1,1,1"))
+    weight_str = str(request.args.get('weights', "1,1,1,1,1"))
     weighting = [int(i)
                  for i in weight_str.split(",")]  # expects 'weights=1,1,1,1'
     print("WEIGHTS", weighting)
