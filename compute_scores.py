@@ -45,7 +45,7 @@ def compute_score(info_dic, out_dic, weights = [1,1,1,1], transport_list=["car",
 
 
 if __name__=="__main__":
-    with open("emission_infos.json", "r") as infile:
+    with open("metadata.json", "r") as infile:
         dic = json.load(infile)
     out_dic = compute_score(dic, {"car":{"duration":5, "distance":1000}, "walk":{"duration":10, "distance":1100},
                               "bike":{"duration":3, "distance":700}}, weights=[1,1,1,1])
