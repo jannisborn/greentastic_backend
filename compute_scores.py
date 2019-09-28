@@ -54,7 +54,7 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1]):
             continue
 
         out_dic[transport] = {}
-        total_duration = round(sum(dur_dic.values()),2)/60
+        total_duration = round(sum(dur_dic.values()),2)
         total_distance = round(sum(dist_dic.values()), 2)
 
         # one list for each part of the way
@@ -153,7 +153,7 @@ if __name__ == "__main__":
         # print(len(out_dic[key].keys()))
         # print(key, out_dic[key]["toxicity"])
         # print(key, out_dic[key]["total_weighted_score_col"])
-        print(key, "duration: ", out_dic[key]["total_weighted_score"])
+        print(key, "duration: ", out_dic[key]["duration"])
 
     with open("example_output.json", "w") as outfile:
         json.dump(out_dic, outfile)
