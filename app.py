@@ -62,7 +62,7 @@ def query_autocomplete():
     """
 
     # TODO: What data types are these?
-    search_string = str(request.args.get('seach_string'))
+    search_string = str(request.args.get('search_string'))
     user_location = str(request.args.get('user_location'))
 
     return jsonify(get_autocomplete(search_string, user_location))
