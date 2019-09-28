@@ -26,7 +26,6 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1]):
     nonempty_keys = []  # if no car route can be found, then it is empty
     value_arr = []  # np.zeros((len(info_dic.keys()), 4))
     for i, transport in enumerate(sorted(info_dic.keys())):
-        out_dic[transport] = {}
         # print("\n TRANSPORT:", transport)
         maps_key = info_dic[transport][
             "maps_key"]  # current corresponding key, eg transit
@@ -38,22 +37,23 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1]):
         dur_dic = maps_dic.get(maps_key, {}).get("duration", {})
 
         if not dist_dic:
-            # If there is no route, e.g. no public transport route is found:
-            # Set scores and values to zeros
-            for k in [
-                    "emission", "calories", "price", "distance", "duration",
-                    "total_weighted_score",
-                    "duration_score", "emission_score", "price_score",
-                    "calories_score", "duration_score", "emission_score",
-                    "price_score", "calories_score", "toxicity", "toxicity_score"
-            ]:
-                out_dic[transport][k] = 0
-            # Set colours to red (not available --> all red)
-            for k in ["duration_col", "emission_col", "price_col", "calories_col", "toxicity_col", "total_weighted_score_col"]:
-                out_dic[transport][k] = [245, 53, 53]
-            out_dic[transport]["coordinates"] = []
+            ##  If there is no route, e.g. no public transport route is found:
+            ##  Set scores and values to zeros
+            # for k in [
+            #         "emission", "calories", "price", "distance", "duration",
+            #         "total_weighted_score",
+            #         "duration_score", "emission_score", "price_score",
+            #         "calories_score", "duration_score", "emission_score",
+            #         "price_score", "calories_score", "toxicity", "toxicity_score"
+            # ]:
+            #     out_dic[transport][k] = 0
+            # # Set colours to red (not available --> all red)
+            # for k in ["duration_col", "emission_col", "price_col", "calories_col", "toxicity_col", "total_weighted_score_col"]:
+            #     out_dic[transport][k] = [245, 53, 53]
+            # out_dic[transport]["coordinates"] = []
             continue
 
+        out_dic[transport] = {}
         total_duration = round(sum(dur_dic.values()),
                                2)  # duration is sum of all durations
         total_distance = round(sum(dist_dic.values()), 2)
