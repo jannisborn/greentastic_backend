@@ -9,7 +9,7 @@ from datetime import datetime
 
 #%%
 # Setup Google API
-API_KEY = open(os.getcwd() + '/clean_commuter.keypair', 'r').read()
+API_KEY = open(os.getcwd() + '/greentastic.keypair', 'r').read()
 GMAPS = GoogleMaps(API_KEY)
 
 
