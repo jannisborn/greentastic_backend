@@ -19,7 +19,12 @@ def normalize_value_arr(value_arr):
     return norm_value_arr
 
 
-def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1]):
+def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1, 1]):
+    """
+    Takes a dictionary maps_dic containing the distances and durations for all means of transportation
+    Computes the emissions, calories and price using info_dic (researched information)
+    returns a dic with all factors for all means of transport available, and the total score weighted by weights
+    """
     norm_weights = weights / np.sum(weights)
     out_dic = {}
     # check: duration in minutes, distances in km
@@ -37,20 +42,6 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1]):
         dur_dic = maps_dic.get(maps_key, {}).get("duration", {})
 
         if not dist_dic:
-            ##  If there is no route, e.g. no public transport route is found:
-            ##  Set scores and values to zeros
-            # for k in [
-            #         "emission", "calories", "price", "distance", "duration",
-            #         "total_weighted_score",
-            #         "duration_score", "emission_score", "price_score",
-            #         "calories_score", "duration_score", "emission_score",
-            #         "price_score", "calories_score", "toxicity", "toxicity_score"
-            # ]:
-            #     out_dic[transport][k] = 0
-            # # Set colours to red (not available --> all red)
-            # for k in ["duration_col", "emission_col", "price_col", "calories_col", "toxicity_col", "total_weighted_score_col"]:
-            #     out_dic[transport][k] = [245, 53, 53]
-            # out_dic[transport]["coordinates"] = []
             continue
 
         out_dic[transport] = {}
@@ -138,12 +129,12 @@ if __name__ == "__main__":
     with open("metadata.json", "r") as infile:
         metadata = json.load(infile)
 
-    car_type=2
+    car_type="Petrol"
     metadata['driving']['emissionsProKM'] = metadata['driving'][
         'emissionsProKM'][car_type]
     metadata['driving']['toxicityPerKM'] = metadata['driving'][
             'toxicityPerKM'][car_type]
-    maps_dic = get_directions("Technopark, Technoparkstrasse, Zürich", "Zurich Main Station, Bahnhofplatz, Zürich") # (47.3857, 8.5668),(47.3495, 8.4920)) # (47.3649, 8.5469))  #
+    maps_dic = get_directions("Technopark, Technoparkstrasse, Zürich", "Zürichsee, 8001 Zürich") # (47.3857, 8.5668),(47.3495, 8.4920)) # (47.3649, 8.5469))  #
     # print(maps_dic)
     out_dic = compute_score(metadata, maps_dic, weights=[1, 1, 1, 1, 1])
     # out_dic = compute_score(dic, {"car":{"duration":5, "distance":1000}, "walk":{"duration":10, "distance":1100},
@@ -153,7 +144,10 @@ if __name__ == "__main__":
         # print(len(out_dic[key].keys()))
         # print(key, out_dic[key]["toxicity"])
         # print(key, out_dic[key]["total_weighted_score_col"])
-        print(key, "duration: ", out_dic[key]["duration"])
+        print("\n", key)
+        for s in ["duration_score", "emission_score", "price_score","calories_score", "toxicity_score"]:
+            print(s, out_dic[key][s])
+        print("total_weighted_score: ", out_dic[key]["total_weighted_score"])
 
     with open("example_output.json", "w") as outfile:
         json.dump(out_dic, outfile)

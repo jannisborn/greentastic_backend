@@ -17,7 +17,7 @@
     },
     "taxi": {
         "price_benzin": 1.7,
-        "priceKm": 8,
+        "priceKm": 3,
         "emissionsProKM": 0.210,
         "toxicityPerKM": 0.4,
         "caloriesPerMin": 2,
