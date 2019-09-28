@@ -123,31 +123,3 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1, 1]):
     for o in order:
         sorted_out_dic[sorted_keys[o]] = out_dic[sorted_keys[o]]
     return sorted_out_dic
-
-
-if __name__ == "__main__":
-    with open("metadata.json", "r") as infile:
-        metadata = json.load(infile)
-
-    car_type="Petrol"
-    metadata['driving']['emissionsProKM'] = metadata['driving'][
-        'emissionsProKM'][car_type]
-    metadata['driving']['toxicityPerKM'] = metadata['driving'][
-            'toxicityPerKM'][car_type]
-    maps_dic = get_directions("Technopark, Technoparkstrasse, Zürich", "Zürichsee, 8001 Zürich") # (47.3857, 8.5668),(47.3495, 8.4920)) # (47.3649, 8.5469))  #
-    # print(maps_dic)
-    out_dic = compute_score(metadata, maps_dic, weights=[1, 1, 1, 1, 1])
-    # out_dic = compute_score(dic, {"car":{"duration":5, "distance":1000}, "walk":{"duration":10, "distance":1100},
-    #  "bike":{"duration":3, "distance":700}}, weights=[1,1,1,1])
-    # print(out_dic)
-    for key in out_dic.keys():
-        # print(len(out_dic[key].keys()))
-        # print(key, out_dic[key]["toxicity"])
-        # print(key, out_dic[key]["total_weighted_score_col"])
-        print("\n", key)
-        for s in ["duration_score", "emission_score", "price_score","calories_score", "toxicity_score"]:
-            print(s, out_dic[key][s])
-        print("total_weighted_score: ", out_dic[key]["total_weighted_score"])
-
-    with open("example_output.json", "w") as outfile:
-        json.dump(out_dic, outfile)
