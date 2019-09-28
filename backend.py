@@ -36,6 +36,8 @@ def get_directions(start, end):
                                   mode=mode,
                                   departure_time=datetime.now())
 
+        if len(routes) == 0: continue
+
         # Allocate dict
         directions[mode] = dict()
         directions[mode]['distance'] = {mode: 0, "walking": 0}
@@ -72,13 +74,6 @@ def get_autocomplete(query, location, radius=50000):
         - SUGGESTIONS {list}. A sorted list of best destinations.
     """
 
-    result = GMAPS.places_autocomplete(query, radius=radius, location=location)
-
-
-#%%
-result = GMAPS.places_autocomplete("New",
-                                   radius=100000,
-                                   location=[47.377776, 8.513023])
-result
-
-#%%
+    places = GMAPS.places_autocomplete(query, radius=radius, location=location)
+    suggestions = [place.get('description', ) for place in places]
+    return suggestions
