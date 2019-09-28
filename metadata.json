@@ -2,7 +2,11 @@
     "driving": {
         "price_benzin": 1.7,
         "priceKm": 1.33,
-        "emissionsProKM": 0.133,
+        "emissionsProKM": [
+            0.122,
+            0.126,
+            0.065
+        ],
         "caloriesPerMin": 2,
         "maps_key": "driving"
     },
@@ -39,7 +43,7 @@
     },
     "transit": {
         "caloriesPerMin": 1.22,
-        "price_fahrt": 3,
+        "priceKm": 0.2,
         "emissionsProKM": 0.05,
         "maps_key": "transit"
     },
