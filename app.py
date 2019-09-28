@@ -1,3 +1,4 @@
+#%%
 from flask import Flask
 from flask import jsonify, request
 import numpy as np
@@ -8,6 +9,7 @@ from backend import get_directions, get_autocomplete
 app = Flask(__name__)
 
 
+#%%
 @app.route('/query_directions', methods=['GET'])  # api/get_messages
 def query_directions():
     weight_str = str(request.args.get('weights'))
@@ -59,7 +61,7 @@ def query_autocomplete():
     search_string = str(request.args.get('seach_string'))
     user_location = str(request.args.get('user_location'))
 
-    return get_autocomplete(search_string, user_location)
+    return jsonify(get_autocomplete(search_string, user_location))
 
 
 if __name__ == '__main__':
