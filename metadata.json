@@ -1,0 +1,10 @@
+{"car": {"price_benzin":1.7,"priceKm":1.33, "emissionsProKM": 0.133,"caloriesPerMin":2},
+"taxi": {"price_benzin":1.7, "priceKm":8, "emissionsProKM": 0.210, "caloriesPerMin":2},
+"walk": {"caloriesPerMin": 5, "priceKm":0, "emissionsProKM":0},
+"bike": {"caloriesPerMin": 20, "priceKm":0.3, "emissionsProKM":0.005},
+"escooter":{"caloriesPerMin":3.33, "priceMin": 0.3, "emissionsProKM":0.1},
+"ebike":{"caloriesPerMin":7.33, "priceProMin":0.2, "emissionsProKM":0.013},
+"tram": {"caloriesPerMin":1.22, "price_fahrt": 3, "emissionsProKM": 0.042},
+"bus": {"caloriesPerMin":1.22, "price_fahrt": 3, "emissionsProKM": 0.069},
+"ecar": {"caloriesPerMin":2, "priceKm":1.2, "emissionsProKM": 0.043},
+"hybridcar": {"caloriesPerMin":2, "priceKm":1.2, "emissionsProKM": 0.084}}
