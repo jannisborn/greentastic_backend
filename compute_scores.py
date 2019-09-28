@@ -93,7 +93,7 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1]):
             "distance": total_distance,
             "duration": total_duration
         }
-        # out_dic[transport]["coordinates"] = maps_dic.get(maps_key,{}).get("coordinates",[])
+        out_dic[transport]["coordinates"] = maps_dic.get(maps_key,{}).get("coordinates",[])
 
     value_arr = np.asarray(value_arr)
     norm_value_arr = normalize_value_arr(value_arr)
