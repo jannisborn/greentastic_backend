@@ -108,7 +108,7 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1]):
     norm_value_arr = normalize_value_arr(value_arr)
     # print(np.around(norm_value_arr,2))
 
-    colours = [[220,20,60], [[255,120,71], [264,184,60], [173,255,47], [50,205,50]]
+    colours = [[220,20,60], [255,120,71], [264,184,60], [173,255,47], [50,205,50]]
     colour_scores = [1, 3, 5, 7, 9]
     for i, transport in enumerate(nonempty_keys):
         for j, score_name in enumerate([
@@ -125,7 +125,14 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1]):
         out_dic[transport]["total_weighted_score"] = total_score
         closest_total = np.argmin(np.abs(colour_scores - total_score * 10))
         out_dic[transport]["total_weighted_score_col"] = colours[closest_total]
-    return out_dic
+
+    sorted_keys = sorted(out_dic.keys())
+    scores = [out_dic[k]["total_weighted_score"] for k in sorted_keys]
+    order = np.flip(np.argsort(scores), axis=0)
+    sorted_out_dic = {}
+    for o in order:
+        sorted_out_dic[sorted_keys[o]] = out_dic[sorted_keys[o]]
+    return sorted_out_dic
 
 
 if __name__ == "__main__":
