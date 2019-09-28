@@ -108,7 +108,7 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1]):
     norm_value_arr = normalize_value_arr(value_arr)
     # print(np.around(norm_value_arr,2))
 
-    colours = [[220,20,60], [255,99,71], [224,180,76], [173,255,47], [50,205,50]]
+    colours = [[220,20,60], [[255,120,71], [264,184,60], [173,255,47], [50,205,50]]
     colour_scores = [1, 3, 5, 7, 9]
     for i, transport in enumerate(nonempty_keys):
         for j, score_name in enumerate([
