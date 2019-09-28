@@ -40,5 +40,11 @@ The output can be seen in localhost:5000, but it won't work because the paramete
 curl -X GET "localhost:5000/?weights=3,1,1,1"
 ```
 
+### UPDATED:
+
+```
+curl -X GET "localhost:5000/query_directions?weights=3,1,1,1&source=Uetliberg,%20Zuerich\&destination=Opernhaus%20Zuerich,%20Falkenstrasse,%20Zuerich"
+```
+
 Weighting can be varied, e.g. putting 3,1,1,1 set higher importance on the duration.
 

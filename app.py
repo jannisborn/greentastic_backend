@@ -16,6 +16,8 @@ def query_directions():
 
     source = str(request.args.get('source'))
     destination = str(request.args.get('destination')) # 'dest_coordinates=bern straße xy'
+    # source = (47.3857, 8.5668)
+    # destination = (47.3649, 8.5469)
 
     googlemapsdic = get_directions(source, destination)
     # print(googlemapsdic)
