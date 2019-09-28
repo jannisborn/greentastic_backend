@@ -1,7 +1,6 @@
 #%%
 from flask import Flask
 from flask import jsonify, request
-import numpy as np
 import json
 from compute_scores import compute_score
 from backend import get_directions, get_autocomplete
@@ -12,7 +11,7 @@ app = Flask(__name__)
 #%%
 @app.route('/query_directions', methods=['GET'])  # api/get_messages
 def query_directions():
-    weight_str = str(request.args.get('weights'))
+    weight_str = str(request.args.get('weights', "1,1,1,1"))
     weighting = [int(i)
                  for i in weight_str.split(",")]  # expects 'weights=1,1,1,1'
     print("WEIGHTS", weighting)
@@ -44,6 +43,11 @@ def query_directions():
     # Load metadata from json file
     with open("metadata.json", "r") as infile:
         metadata = json.load(infile)
+
+    # Car type can be any of {0, 1, 2} where {0=petrol, 1=diesel, 2=electric}
+    car_type = request.args.get('car_type', 0)
+    metadata['driving']['emissionsProKM'] = metadata['driving'][
+        'emissionsProKM'][car_type]
 
     # Compute scores from google maps data
     out_dic = compute_score(metadata, googlemapsdic, weights=weighting)

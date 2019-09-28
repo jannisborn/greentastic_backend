@@ -1,9 +1,58 @@
-{"driving": {"price_benzin":1.7,"priceKm":1.33, "emissionsProKM": 0.133,"caloriesPerMin":2, "maps_key":"driving"},
-"taxi": {"price_benzin":1.7, "priceKm":8, "emissionsProKM": 0.210, "caloriesPerMin":2, "maps_key":"driving"},
-"walking": {"caloriesPerMin": 5, "priceKm":0, "emissionsProKM":0, "maps_key":"walking"},
-"bicycling": {"caloriesPerMin": 15, "priceKm":0.3, "emissionsProKM":0.005, "maps_key":"bicycling"},
-"escooter":{"caloriesPerMin":3.33, "priceMin": 0.3, "emissionsProKM":0.1, "maps_key":"bicycling"},
-"ebike":{"caloriesPerMin":7.33, "priceMin":0.2, "emissionsProKM":0.013, "maps_key":"bicycling"},
-"transit": {"caloriesPerMin":1.22, "price_fahrt": 3, "emissionsProKM": 0.05, "maps_key":"transit"},
-"ecar": {"caloriesPerMin":2, "priceKm":1.2, "emissionsProKM": 0.043, "maps_key":"driving"},
-"hybridcar": {"caloriesPerMin":2, "priceKm":1.2, "emissionsProKM": 0.084, "maps_key":"driving"}}
+{
+    "driving": {
+        "price_benzin": 1.7,
+        "priceKm": 1.33,
+        "emissionsProKM": 0.133,
+        "caloriesPerMin": 2,
+        "maps_key": "driving"
+    },
+    "taxi": {
+        "price_benzin": 1.7,
+        "priceKm": 8,
+        "emissionsProKM": 0.210,
+        "caloriesPerMin": 2,
+        "maps_key": "driving"
+    },
+    "walking": {
+        "caloriesPerMin": 5,
+        "priceKm": 0,
+        "emissionsProKM": 0,
+        "maps_key": "walking"
+    },
+    "bicycling": {
+        "caloriesPerMin": 15,
+        "priceKm": 0.3,
+        "emissionsProKM": 0.005,
+        "maps_key": "bicycling"
+    },
+    "escooter": {
+        "caloriesPerMin": 3.33,
+        "priceMin": 0.3,
+        "emissionsProKM": 0.1,
+        "maps_key": "bicycling"
+    },
+    "ebike": {
+        "caloriesPerMin": 7.33,
+        "priceMin": 0.2,
+        "emissionsProKM": 0.013,
+        "maps_key": "bicycling"
+    },
+    "transit": {
+        "caloriesPerMin": 1.22,
+        "price_fahrt": 3,
+        "emissionsProKM": 0.05,
+        "maps_key": "transit"
+    },
+    "ecar": {
+        "caloriesPerMin": 2,
+        "priceKm": 1.2,
+        "emissionsProKM": 0.043,
+        "maps_key": "driving"
+    },
+    "hybridcar": {
+        "caloriesPerMin": 2,
+        "priceKm": 1.2,
+        "emissionsProKM": 0.084,
+        "maps_key": "driving"
+    }
+}
