@@ -36,6 +36,7 @@ def get_directions(start, end):
                                   mode=mode,
                                   departure_time=datetime.now())
 
+        # Skip this transportation type if no route is available
         if len(routes) == 0: continue
 
         # Allocate dict
