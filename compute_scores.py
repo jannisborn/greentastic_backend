@@ -54,8 +54,7 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1]):
             continue
 
         out_dic[transport] = {}
-        total_duration = round(sum(dur_dic.values()),
-                               2)  # duration is sum of all durations
+        total_duration = round(sum(dur_dic.values()),2)/60
         total_distance = round(sum(dist_dic.values()), 2)
 
         # one list for each part of the way
@@ -144,7 +143,7 @@ if __name__ == "__main__":
         'emissionsProKM'][car_type]
     metadata['driving']['toxicityPerKM'] = metadata['driving'][
             'toxicityPerKM'][car_type]
-    maps_dic = get_directions((47.3857, 8.5668),(47.3495, 8.4920)) # (47.3649, 8.5469))  #
+    maps_dic = get_directions("Technopark, Technoparkstrasse, Zürich", "Zurich Main Station, Bahnhofplatz, Zürich") # (47.3857, 8.5668),(47.3495, 8.4920)) # (47.3649, 8.5469))  #
     # print(maps_dic)
     out_dic = compute_score(metadata, maps_dic, weights=[1, 1, 1, 1, 1])
     # out_dic = compute_score(dic, {"car":{"duration":5, "distance":1000}, "walk":{"duration":10, "distance":1100},
@@ -154,7 +153,7 @@ if __name__ == "__main__":
         # print(len(out_dic[key].keys()))
         # print(key, out_dic[key]["toxicity"])
         # print(key, out_dic[key]["total_weighted_score_col"])
-        print(key, "total score: ", out_dic[key]["total_weighted_score"])
+        print(key, "duration: ", out_dic[key]["total_weighted_score"])
 
     with open("example_output.json", "w") as outfile:
         json.dump(out_dic, outfile)
