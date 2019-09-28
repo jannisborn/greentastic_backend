@@ -56,3 +56,29 @@ def get_directions(start, end):
                 step['travel_mode'].lower()] += step['distance']['value']
 
     return directions
+
+
+def get_autocomplete(query, location, radius=50000):
+    """
+    Receives a query for GoogleMaps and returns a sorted list of best destinations.
+    Args:
+        - QUERY {string}.  The possibly incomplete target location.
+        - LOCATION {string, dict, list, or tuple}. The user location, ideally a list
+            of two GPS coordinates. 
+        - RADIUS {int}. The radius in meter used to restrict the search proposals.
+            Defaults to 50km.
+    
+    Returns:
+        - SUGGESTIONS {list}. A sorted list of best destinations.
+    """
+
+    result = GMAPS.places_autocomplete(query, radius=radius, location=location)
+
+
+#%%
+result = GMAPS.places_autocomplete("New",
+                                   radius=100000,
+                                   location=[47.377776, 8.513023])
+result
+
+#%%
