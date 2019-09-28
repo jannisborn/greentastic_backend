@@ -38,14 +38,19 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1]):
         dur_dic = maps_dic.get(maps_key, {}).get("duration", {})
 
         if not dist_dic:
+            # If there is no route, e.g. no public transport route is found:
+            # Set scores and values to zeros
             for k in [
                     "emission", "calories", "price", "distance", "duration",
-                    "total_weighted_score", "total_weighted_score_col",
+                    "total_weighted_score",
                     "duration_score", "emission_score", "price_score",
                     "calories_score", "duration_score", "emission_score",
-                    "price_score", "calories_score"
+                    "price_score", "calories_score", "toxicity", "toxicity_score"
             ]:
                 out_dic[transport][k] = 0
+            # Set colours to red (not available --> all red)
+            for k in ["duration_col", "emission_col", "price_col", "calories_col", "toxicity_col", "total_weighted_score_col"]:
+                out_dic[transport][k] = [245, 53, 53]
             out_dic[transport]["coordinates"] = []
             continue
 
@@ -57,6 +62,7 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1]):
         prices = []
         emissions = []
         calories = []
+        toxicity = []
         for j, step_key in enumerate(sorted(dist_dic.keys())):  # distances
             # for each part of the way, compute the absolute amount of calories burnt,
             # the price and the absolute amount of emissions
@@ -70,6 +76,7 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1]):
             infos = info_dic[step_transport]
 
             emissions.append(infos["emissionsProKM"] * d)  # emissions
+            toxicity.append(infos["toxicityPerKM"] * d) # toxicity
             if "priceKm" in infos:
                 p = infos["priceKm"] * d
             else:
@@ -78,20 +85,22 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1]):
             calories.append(infos["caloriesPerMin"] * m)  # calories
             # print("e:", emissions, "p:", prices, "c:", calories)
 
+        total_toxicity = round(sum(toxicity), 2)
         total_emissions = round(sum(emissions), 2)
         total_calories = round(sum(calories), 2)
         total_price = round(sum(prices), 2)
 
         nonempty_keys.append(transport)
         value_arr.append(
-            [total_duration, total_emissions, total_price, total_calories])
+            [total_duration, total_emissions, total_price, total_calories, total_toxicity])
 
         out_dic[transport] = {
             "emission": total_emissions,
             "calories": total_calories,
             "price": total_price,
             "distance": total_distance,
-            "duration": total_duration
+            "duration": total_duration,
+            "toxicity": total_toxicity
         }
         out_dic[transport]["coordinates"] = maps_dic.get(maps_key,{}).get("coordinates",[])
 
@@ -105,11 +114,11 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1]):
     for i, transport in enumerate(nonempty_keys):
         for j, score_name in enumerate([
                 "duration_score", "emission_score", "price_score",
-                "calories_score"
+                "calories_score", "toxicity_score"
         ]):
             out_dic[transport][score_name] = norm_value_arr[i, j]
         for j, score_name in enumerate(
-            ["duration_col", "emission_col", "price_col", "calories_col"]):
+            ["duration_col", "emission_col", "price_col", "calories_col", "toxicity_col"]):
             closest = np.argmin(
                 np.abs(colour_scores - norm_value_arr[i, j] * 10))
             out_dic[transport][score_name] = colours[closest]
@@ -122,16 +131,24 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1]):
 
 if __name__ == "__main__":
     with open("metadata.json", "r") as infile:
-        dic = json.load(infile)
-    maps_dic = get_directions((47.3857, 8.5668),
-                              (47.3649, 8.5469))  #(47.3495, 8.4920)) #
+        metadata = json.load(infile)
+
+    car_type=2
+    metadata['driving']['emissionsProKM'] = metadata['driving'][
+        'emissionsProKM'][car_type]
+    metadata['driving']['toxicityPerKM'] = metadata['driving'][
+            'toxicityPerKM'][car_type]
+    maps_dic = get_directions((47.3857, 8.5668),(47.3495, 8.4920)) # (47.3649, 8.5469))  #
     # print(maps_dic)
-    out_dic = compute_score(dic, maps_dic, weights=[1, 1, 1, 1])
+    out_dic = compute_score(metadata, maps_dic, weights=[1, 1, 1, 1, 1])
     # out_dic = compute_score(dic, {"car":{"duration":5, "distance":1000}, "walk":{"duration":10, "distance":1100},
     #  "bike":{"duration":3, "distance":700}}, weights=[1,1,1,1])
-    print(out_dic)
+    # print(out_dic)
     for key in out_dic.keys():
-        print(key, out_dic[key]["total_weighted_score"])
+        # print(len(out_dic[key].keys()))
+        # print(key, out_dic[key]["toxicity"])
+        # print(key, out_dic[key]["total_weighted_score_col"])
+        print(key, "total score: ", out_dic[key]["total_weighted_score"])
 
     with open("example_output.json", "w") as outfile:
         json.dump(out_dic, outfile)

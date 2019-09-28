@@ -3,9 +3,14 @@
         "price_benzin": 1.7,
         "priceKm": 1.33,
         "emissionsProKM": [
-            0.122,
-            0.126,
-            0.065
+            0.19,
+            0.16,
+            0.13
+        ],
+        "toxicityPerKM":[
+            0.32,
+            0.25,
+            0.2
         ],
         "caloriesPerMin": 2,
         "maps_key": "driving"
@@ -14,6 +19,7 @@
         "price_benzin": 1.7,
         "priceKm": 8,
         "emissionsProKM": 0.210,
+        "toxicityPerKM": 0.4,
         "caloriesPerMin": 2,
         "maps_key": "driving"
     },
@@ -21,42 +27,35 @@
         "caloriesPerMin": 5,
         "priceKm": 0,
         "emissionsProKM": 0,
+        "toxicityPerKM": 0,
         "maps_key": "walking"
     },
     "bicycling": {
         "caloriesPerMin": 15,
         "priceKm": 0.3,
         "emissionsProKM": 0.005,
+        "toxicityPerKM": 0,
         "maps_key": "bicycling"
     },
     "escooter": {
         "caloriesPerMin": 3.33,
         "priceMin": 0.3,
         "emissionsProKM": 0.1,
+        "toxicityPerKM": 0.05,
         "maps_key": "bicycling"
     },
     "ebike": {
         "caloriesPerMin": 7.33,
         "priceMin": 0.2,
         "emissionsProKM": 0.013,
+        "toxicityPerKM": 0.05,
         "maps_key": "bicycling"
     },
     "transit": {
         "caloriesPerMin": 1.22,
         "priceKm": 0.2,
         "emissionsProKM": 0.05,
+        "toxicityPerKM": 0.12,
         "maps_key": "transit"
-    },
-    "ecar": {
-        "caloriesPerMin": 2,
-        "priceKm": 1.2,
-        "emissionsProKM": 0.043,
-        "maps_key": "driving"
-    },
-    "hybridcar": {
-        "caloriesPerMin": 2,
-        "priceKm": 1.2,
-        "emissionsProKM": 0.084,
-        "maps_key": "driving"
     }
 }

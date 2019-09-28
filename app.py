@@ -48,6 +48,8 @@ def query_directions():
     car_type = request.args.get('car_type', 0)
     metadata['driving']['emissionsProKM'] = metadata['driving'][
         'emissionsProKM'][car_type]
+    metadata['driving']['toxicityPerKM'] = metadata['driving'][
+            'toxicityPerKM'][car_type]
 
     # Compute scores from google maps data
     out_dic = compute_score(metadata, googlemapsdic, weights=weighting)
