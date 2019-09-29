@@ -3,7 +3,7 @@
 # Greentastic 
 ### A project created @Hack Zurich 2019
 
-<img align="center" src="https://github.com/jannisborn/greentastic/blob/master/assets/demo.jpeg" alt="demo" width="400"/>
+<img align="right" src="https://github.com/jannisborn/greentastic/blob/master/assets/demo.jpeg" alt="demo" width="400"/>
 
 ## Usage:
 * Download the TestFlight iOS App from: []()
