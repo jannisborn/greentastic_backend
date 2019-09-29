@@ -1,29 +1,43 @@
-# clean_commuter
-Hack Zurich 2019
+# Greentastic
+A project created @Hack Zurich 2019
 
 
-## Requirements
+## Requirements 
+* `flask`
+* `numpy`
+* `googlemaps`
+* `polyline`
 
-- `conda>=3.7`
+
+For own deployment you additionally need:
+* Billed account on `Google Cloud Platform` (get started [here](https://cloud.google.com))
+    * API Dependencies: 
+        * `Directions`
+        * `Places`
+    * `Google Cloud SDK` (get started [here](https://cloud.google.com/appengine/docs/flexible/python/quickstart))
+    * Paste your keypair into the repo's main folder and name it `greentastic.keypair`
+* `gunicorn`
+
+
 
 ## Usage
 
-Create a conda environment:
+Create a virtual environment:
 
 ```sh
-conda env create -f conda.yml
+python3 -m venv env
 ```
 
 Activate the environment:
 
 ```sh
-conda activate hackzurich
+source env/bin/activate
 ```
 
 Install in editable mode for development:
 
 ```sh
-pip install -e .
+pip install  -r requirements.txt
 ```
 
 ## Test backend functionality:
