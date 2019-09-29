@@ -1,7 +1,7 @@
 # Greentastic 
 ### A project created @Hack Zurich 2019
-<p align="center">
-![greentastic_icon](https://github.com/jannisborn/clean_commuter/blob/ios_app/CleanConmute/AppIcon.appiconset/cleancommute_icon-76%402x.png)
+<p align="right">
+<img src="https://github.com/jannisborn/clean_commuter/blob/ios_app/CleanConmute/AppIcon.appiconset/cleancommute_icon-76%402x.png" alt="icon"/>
    </p>
 
 ## Demo
