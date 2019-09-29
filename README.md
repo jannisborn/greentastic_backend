@@ -3,20 +3,25 @@ A project created @Hack Zurich 2019
 
 
 ## Requirements 
-* `flask`
-* `numpy`
-* `googlemaps`
-* `polyline`
 
 
-For own deployment you additionally need:
+
+
+For full functionality (including own deployment) you need:
+* `XCode>=10`
+* `Python>=3.6`
+    * `numpy`
+    * `googlemaps`
+    * `polyline`
+    * `flask`
+    * `gunicorn`
 * Billed account on `Google Cloud Platform` (get started [here](https://cloud.google.com))
-    * API Dependencies: 
+    * API Dependencies (need to be enabled individually)
         * `Directions`
         * `Places`
     * `Google Cloud SDK` (get started [here](https://cloud.google.com/appengine/docs/flexible/python/quickstart))
     * Paste your keypair into the repo's main folder and name it `greentastic.keypair`
-* `gunicorn`
+
 
 
 
@@ -42,17 +47,24 @@ pip install  -r requirements.txt
 
 ## Test backend functionality:
 
-In one terminal window, run 
+Run
 
 ```
 python app.py
 ```
-
-The output can be seen in localhost:5000, but it won't work because the parameter weights is missing. To test the code with the parameter, open a new terminal window and type
+the output roots to
+```
+http://localhost:5000/
+```
+and you can query directions e.g. from Ütliberg to Zürichberg by:
+```
+http://localhost:5000/query_directions?source=Uetliberg&destination=Zuerichberg
+```
+or run it from command line by:
 
 ```
-curl -X GET "localhost:5000/query_directions?weights=1,1,1,1,1&source=Uetliberg,%20Zuerich\&destination=Opernhaus%20Zuerich,%20Falkenstrasse,%20Zuerich"
+curl -X GET "http://localhost:5000/query_directions?weights=1,1,1,1,1&source=Uetliberg&destination=Zuerichberg"
 ```
 
-Weighting can be varied, e.g. putting 3,1,1,1 set higher importance on the duration.
+
 
