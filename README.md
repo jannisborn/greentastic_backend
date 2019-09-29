@@ -1,7 +1,8 @@
-# Greentastic <img style="float: right;" src="https://github.com/jannisborn/clean_commuter/blob/ios_app/CleanConmute/AppIcon.appiconset/cleancommute_icon-76%402x.png">
+# Greentastic 
+### A project created @Hack Zurich 2019
+![greentastic_icon](https://github.com/jannisborn/clean_commuter/blob/ios_app/CleanConmute/AppIcon.appiconset/cleancommute_icon-76%402x.png)
 
 
-A project created @Hack Zurich 2019
 
 ## Usage:
 * Download the TestFlight iOS App from: []()
