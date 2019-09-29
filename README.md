@@ -7,6 +7,7 @@
 
 ## Usage:
 * Download the TestFlight iOS App from: []()
+* Scroll to the bottom to get quick impressions.
 ## Code requirements:
 For full functionality (including own deployment) you need:
 * `XCode>=10`
