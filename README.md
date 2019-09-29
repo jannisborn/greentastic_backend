@@ -1,14 +1,7 @@
-<img align="right" width="100" height="100" src="http://www.fillmurray.com/100/100">
+<img align="right" width="100" height="100" src="https://github.com/jannisborn/clean_commuter/blob/ios_app/CleanConmute/AppIcon.appiconset/cleancommute_icon-76%402x.png">
 
 # Greentastic 
 ### A project created @Hack Zurich 2019
-
-## `right` alignment
-
-
-
-
-<img align="right" src="https://github.com/jannisborn/clean_commuter/blob/ios_app/CleanConmute/AppIcon.appiconset/cleancommute_icon-76%402x.png" alt="icon"/>
 
 
 ## Demo
