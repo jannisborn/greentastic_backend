@@ -3,20 +3,10 @@
 # Greentastic 
 ### A project created @Hack Zurich 2019
 
-
-## Demo
-<p align="center">
-   <img src="https://github.com/jannisborn/greentastic/blob/master/assets/demo.jpeg" alt="demo" width="400"/>
-   </p>
-
-
-
+<img align="center" src="https://github.com/jannisborn/greentastic/blob/master/assets/demo.jpeg" alt="demo" width="400"/>
 
 ## Usage:
 * Download the TestFlight iOS App from: []()
-
-
-
 ## Code requirements:
 For full functionality (including own deployment) you need:
 * `XCode>=10`
