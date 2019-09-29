@@ -66,5 +66,19 @@ or run it from command line by:
 curl -X GET "http://localhost:5000/query_directions?weights=1,1,1,1,1&source=Uetliberg&destination=Zuerichberg"
 ```
 
+## Deploy the backend as API: 
+Make sure to enable the Google Cloud Platform dependencies and add the keypair, then deploy (takes several minutes):
+```
+gcloud app deploy
+```
+
+and then run:
+```
+gcloud app browse
+```
+
+Currently, you can access the API on [https://clean-commuter.appspot.com/](https://clean-commuter.appspot.com/query_directions) (the root doesn't work, you have to enter a query).
+
+
 
 
