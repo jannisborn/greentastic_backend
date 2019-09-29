@@ -19,29 +19,11 @@ def query_directions():
     source = str(request.args.get('source'))
     destination = str(
         request.args.get('destination'))  # 'dest_coordinates=bern straße xy'
-    # source = (47.3857, 8.5668)
-    # destination = (47.3649, 8.5469)
 
     googlemapsdic = get_directions(source, destination)
-    # print(googlemapsdic)
-    ## Hrd coded duration and distances dictionary
-    # googlemapsdic = {
-    #     "car": {
-    #         "duration": 5,
-    #         "distance": 1000
-    #     },
-    #     "walk": {
-    #         "duration": 10,
-    #         "distance": 1100
-    #     },
-    #     "bike": {
-    #         "duration": 3,
-    #         "distance": 700
-    #     }
-    # }
 
     # Load metadata from json file
-    with open("metadata.json", "r") as infile:
+    with open("assets/metadata.json", "r") as infile:
         metadata = json.load(infile)
 
     # Car type can be any of {"Petrol", "Diesel", "Electric"}
