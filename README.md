@@ -2,6 +2,10 @@
 ### A project created @Hack Zurich 2019
 ![greentastic_icon](https://github.com/jannisborn/clean_commuter/blob/ios_app/CleanConmute/AppIcon.appiconset/cleancommute_icon-76%402x.png)
 
+## Demo
+<img src="https://github.com/jannisborn/greentastic/blob/master/assets/demo.jpeg" alt="demo" align="center" width="400"/>
+
+
 
 
 ## Usage:
