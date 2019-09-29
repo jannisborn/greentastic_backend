@@ -1,12 +1,12 @@
 # Greentastic
 A project created @Hack Zurich 2019
 
-
-## Requirements 
-
-
+## Usage:
+* Download the TestFlight iOS App from: []()
 
 
+
+## Code requirements:
 For full functionality (including own deployment) you need:
 * `XCode>=10`
 * `Python>=3.6`
@@ -25,8 +25,7 @@ For full functionality (including own deployment) you need:
 
 
 
-## Usage
-
+## Test backend functionality:
 Create a virtual environment:
 
 ```sh
@@ -44,11 +43,7 @@ Install in editable mode for development:
 ```sh
 pip install  -r requirements.txt
 ```
-
-## Test backend functionality:
-
 Run
-
 ```
 python app.py
 ```
@@ -77,7 +72,7 @@ and then run:
 gcloud app browse
 ```
 
-Currently, you can access the API on [https://clean-commuter.appspot.com/](https://clean-commuter.appspot.com/query_directions) (the root doesn't work, you have to enter a query).
+Currently, you can access the API on [https://clean-commuter.appspot.com/](https://clean-commuter.appspot.com/query_directions) (the root doesn't work, you have to enter a query as shown above).
 
 
 
