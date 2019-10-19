@@ -1,0 +1,7 @@
+{
+    "weights": "1,1,1,1,1",
+    "transportation_modes": [
+        "walking", "driving", "taxi", "bicycling", "escooter", "ebike", "transit"
+    ],
+    "car_cost" : 20000
+}

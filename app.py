@@ -9,11 +9,27 @@ app = Flask(__name__)
 
 
 #%%
-@app.route('/query_directions', methods=['GET'])  # api/get_messages
+@app.route('/query_directions', methods=['GET', 'POST'])  # api/get_messages
 def query_directions():
-    weight_str = str(request.args.get('weights', "1,1,1,1,1"))
+    """
+    Receives a query to compute directions from source to directions (accesses GoogleMaps API)
+    Can be called in GET or in POST mode.
+
+    In any case, 'source' and 'destination' should be given in URL.
+    """
+
+    if request.method == 'GET':
+        # Parse arguments from query
+        user_profile = {
+            'weights': str(request.args.get('weights', "1,1,1,1,1"))
+        }
+
+    elif request.method == 'POST':
+        user_profile = request.get_json(force=True)
+        print(user_profile)
+
     weighting = [float(i)
-                 for i in weight_str.split(",")]  # expects 'weights=1,1,1,1'
+                 for i in user_profile.get('weights').split(",")]  # expects 'weights=1,1,1,1'
     print("WEIGHTS", weighting)
 
     source = str(request.args.get('source'))

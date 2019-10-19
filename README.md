@@ -62,6 +62,11 @@ or run it from command line by:
 ```
 curl -X GET "http://localhost:5000/query_directions?weights=1,1,1,1,1&source=Uetliberg&destination=Zuerichberg"
 ```
+you can also make a `POST` request via `curl` and point to a `json` with a user profile:
+
+```
+curl "http://localhost:5000/query_directions?source=Uetliberg&destination=Zuerichberg" -d '@user_profile.json'
+```
 
 ## Deploy the backend as API: 
 Make sure to enable the Google Cloud Platform dependencies and add the keypair, then deploy (takes several minutes):
