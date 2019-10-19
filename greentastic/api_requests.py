@@ -53,10 +53,26 @@ def get_directions(start, end):
                 polyline.decode(step['polyline']['points']))
 
             # Update the distance and duration values
-            directions[mode]['duration'][
-                step['travel_mode'].lower()] += step['duration']['value']
-            directions[mode]['distance'][
-                step['travel_mode'].lower()] += step['distance']['value']
+            # travel_mode defaults to what is given in step directly, but the
+            # nesting is necessary to separate transit modes (Bus, Tram etc.)
+            travel_mode = step.get(
+                'transit_details', {}
+            ).get(
+                'line', {}
+            ).get('vehicle', {}).get('type', step['travel_mode']).lower()
+
+            directions[mode]['duration'].update({
+                travel_mode: (
+                    directions[mode]['duration'].get(travel_mode, 0) +
+                    step['duration']['value']
+                )
+            })
+            directions[mode]['distance'].update({
+                travel_mode: (
+                    directions[mode]['distance'].get(travel_mode, 0) +
+                    step['distance']['value']
+                )
+            })
 
     return directions
 
