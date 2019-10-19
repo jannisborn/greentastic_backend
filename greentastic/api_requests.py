@@ -41,8 +41,8 @@ def get_directions(start, end):
 
         # Allocate dict
         directions[mode] = dict()
-        directions[mode]['distance'] = {mode: 0, "walking": 0}
-        directions[mode]['duration'] = {mode: 0, "walking": 0}
+        directions[mode]['distance'] = {}
+        directions[mode]['duration'] = {}
         directions[mode]['coordinates'] = []
 
         # Gather data (parse individual parts of the journey)
