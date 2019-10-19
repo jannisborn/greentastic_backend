@@ -65,146 +65,146 @@
     },
     "tram": {
       "caloriesPerMin": 1.22,
-      "base_price": 3,
-      "priceKm": 0.05,
+      "base_price": ,
+      "priceKm": ,
       "emissionsProKM": 0.042,
       "toxicityPerKM": 0.06,
       "maps_key": "transit"
     },
     "bus":{
       "caloriesPerMin": 1.22,
-      "base_price": 3,
-      "priceKm": 0.05,
+      "base_price": ,
+      "priceKm": ,
       "emissionsProKM": 0.075,
       "toxicityPerKM": 0.28,
       "maps_key": "transit"
     },
     "intercity_bus":{
       "caloriesPerMin": 1.22,
-      "base_price": 3,
-      "priceKm": 0.05,
+      "base_price": ,
+      "priceKm": ,
       "emissionsProKM": 0.032,
       "toxicityPerKM": 0.17,
       "maps_key": "transit"
     },
     "trolleybus":{
       "caloriesPerMin": 1.22,
-      "base_price": 3,
-      "priceKm": 0.05,
+      "base_price": ,
+      "priceKm": ,
       "emissionsProKM": 0.064,
       "toxicityPerKM": 0.06,
       "maps_key": "transit"
     },
     "rail":{
       "caloriesPerMin": 1.22,
-      "base_price": 3,
-      "priceKm": 0.05,
+      "base_price": ,
+      "priceKm": ,
       "emissionsProKM": 0.036,
       "toxicityPerKM": 0.04,
       "maps_key": "transit"
     },
     "monorail":{
       "caloriesPerMin": 1.22,
-      "base_price": 3,
-      "priceKm": 0.05,
+      "base_price": ,
+      "priceKm": ,
       "emissionsProKM": 0.036,
       "toxicityPerKM": 0.04,
       "maps_key": "transit"
     },
     "heavyrail":{
       "caloriesPerMin": 1.22,
-      "base_price": 3,
-      "priceKm": 0.05,
+      "base_price": ,
+      "priceKm": ,
       "emissionsProKM": 0.036,
       "toxicityPerKM": 0.04,
       "maps_key": "transit"
     },
     "commuter_train":{
       "caloriesPerMin": 1.22,
-      "base_price": 3,
-      "priceKm": 0.05,
+      "base_price": ,
+      "priceKm": ,
       "emissionsProKM": 0.06,
       "toxicityPerKM": 0.18,
       "maps_key": "transit"
     },
     "long_distance_train":{
       "caloriesPerMin": 1.22,
-      "base_price": 3,
-      "priceKm": 0.05,
+      "base_price": ,
+      "priceKm": ,
       "emissionsProKM": 0.036,
       "toxicityPerKM": 0.04,
       "maps_key": "transit"
     },
     "high_speed_train":{
       "caloriesPerMin": 1.22,
-      "base_price": 3,
-      "priceKm": 0.05,
+      "base_price": ,
+      "priceKm": ,
       "emissionsProKM": 0.036,
       "toxicityPerKM": 0.04,
       "maps_key": "transit"
     },
     "metro_rail":{
       "caloriesPerMin": 1.22,
-      "base_price": 3,
-      "priceKm": 0.05,
+      "base_price": ,
+      "priceKm": ,
       "emissionsProKM": 0.064,
       "toxicityPerKM": 0.06,
       "maps_key": "transit"
     },
     "subway":{
       "caloriesPerMin": 1.22,
-      "base_price": 3,
-      "priceKm": 0.05,
+      "base_price": ,
+      "priceKm": ,
       "emissionsProKM": 0.064,
       "toxicityPerKM": 0.06,
       "maps_key": "transit"
     },
     "share_taxi":{
       "caloriesPerMin": 1.22,
-      "base_price": 3,
-      "priceKm": 0.05,
+      "base_price": ,
+      "priceKm": ,
       "emissionsProKM": 0.075,
       "toxicityPerKM": 0.28,
       "maps_key": "transit"
     },
     "ferry":{
       "caloriesPerMin": 1.22,
-      "base_price": 3,
-      "priceKm": 0.05,
+      "base_price": ,
+      "priceKm": ,
       "emissionsProKM": 0.115,
       "toxicityPerKM": 0.51,
       "maps_key": "transit"
     },
     "funicular":{
       "caloriesPerMin": 1.22,
-      "base_price": 3,
-      "priceKm": 0.05,
+      "base_price": ,
+      "priceKm": ,
       "emissionsProKM": 0.027,
       "toxicityPerKM": 0.06,
       "maps_key": "transit"
     },
     "gondola_lift":{
       "caloriesPerMin": 1.22,
-      "base_price": 3,
-      "priceKm": 0.05,
+      "base_price": ,
+      "priceKm": ,
       "emissionsProKM": 0.027,
       "toxicityPerKM": 0.06,
       "maps_key": "transit"
     },
     "cable_car":{
       "caloriesPerMin": 1.22,
-      "base_price": 3,
-      "priceKm": 0.05,
+      "base_price": ,
+      "priceKm": ,
       "emissionsProKM": 0.027,
       "toxicityPerKM": 0.06,
       "maps_key": "transit"
     },
     "other":{
       "caloriesPerMin": 1.22,
-      "base_price": 3,
-      "priceKm": 0.05,
-      "emissionsProKM": 0.064,
-      "toxicityPerKM": 0.06,
+      "base_price": ,
+      "priceKm": ,
+      "emissionsProKM": ,
+      "toxicityPerKM": ,
       "maps_key": "transit"
     }
 }
