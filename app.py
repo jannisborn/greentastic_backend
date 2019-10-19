@@ -2,8 +2,8 @@
 from flask import Flask
 from flask import jsonify, request
 import json
-from compute_scores import compute_score
-from backend import get_directions, get_autocomplete
+from greentastic.compute_scores import compute_score
+from greentastic.api_requests import get_directions, get_autocomplete
 
 app = Flask(__name__)
 
