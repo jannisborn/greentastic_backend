@@ -74,7 +74,7 @@ Make sure to enable the Google Cloud Platform dependencies and add the keypair, 
 gcloud app deploy
 ```
 
-and then run:
+and then run
 ```
 gcloud app browse
 ```
