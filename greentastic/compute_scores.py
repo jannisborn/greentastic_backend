@@ -70,7 +70,7 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1, 1]):
 
             emissions.append(infos["emissionsProKM"] * d)  # emissions
             toxicity.append(infos["toxicityPerKM"] * d) # toxicity
-            if d==0: # can happen, e.g. walking 0m 
+            if d==0: # can happen, e.g. walking 0m
                 p=0
             # To avoid counting the base price twice if first bus than tram for example:
             elif "priceKm" in infos and prev_step in base_price_once_transits and step_key in base_price_once_transits:
@@ -85,7 +85,8 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1, 1]):
             prices.append(p)  # price
             calories.append(infos["caloriesPerMin"] * m)  # calories
             # print("e:", emissions, "p:", prices, "c:", calories)
-            prev_step = step_key
+            if step_key!="walking":
+                prev_step = step_key
 
         total_toxicity = round(sum(toxicity), 2)
         total_emissions = round(sum(emissions), 2)
