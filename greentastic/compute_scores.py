@@ -25,6 +25,10 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1, 1]):
     Computes the emissions, calories and price using info_dic (researched information)
     returns a dic with all factors for all means of transport available, and the total score weighted by weights
     """
+    # define base_price_once_transits to avoid counting the base price multiple times when bus comes directly after tram
+    base_price_once_transits = ["tram", "bus", "trolleybus", "commuter_train", "subway", "metro_rail"]
+    prev_step = None # previous step --> if prev_step=bus and step_key = tram then don't take base price again
+
     norm_weights = weights / np.sum(weights)
     out_dic = {}
     # check: duration in minutes, distances in km
@@ -66,15 +70,22 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1, 1]):
 
             emissions.append(infos["emissionsProKM"] * d)  # emissions
             toxicity.append(infos["toxicityPerKM"] * d) # toxicity
-            if d==0:
+            if d==0: # can happen, e.g. walking 0m 
                 p=0
+            # To avoid counting the base price twice if first bus than tram for example:
+            elif "priceKm" in infos and prev_step in base_price_once_transits and step_key in base_price_once_transits:
+                p = infos["priceKm"] * d
             elif "priceKm" in infos:
                 p = infos["base_price"] + infos["priceKm"] * d # public transport: base price + price per km
             else: # then it is computed per minute
                 p = infos["priceMin"] * m
+
+            if maps_key=="transit":
+                print(step_key, d, p)
             prices.append(p)  # price
             calories.append(infos["caloriesPerMin"] * m)  # calories
             # print("e:", emissions, "p:", prices, "c:", calories)
+            prev_step = step_key
 
         total_toxicity = round(sum(toxicity), 2)
         total_emissions = round(sum(emissions), 2)
