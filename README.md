@@ -6,7 +6,7 @@
 <img align="right" src="https://github.com/jannisborn/greentastic/blob/master/assets/demo.jpeg" alt="demo" width="400"/>
 
 ## Usage:
-* Download the TestFlight iOS App from (coming soon...): []()
+* Download the [TestFlight iOS App](https://testflight.apple.com/join/qIDSZLzE)
 * Scroll to the bottom to get quick impressions.
 ## Code requirements:
 For full functionality (including own deployment) you need:
