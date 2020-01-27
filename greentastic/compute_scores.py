@@ -29,7 +29,13 @@ def compute_score(info_dic, maps_dic, weights=[1, 1, 1, 1, 1]):
     base_price_once_transits = ["tram", "bus", "trolleybus", "commuter_train", "subway", "metro_rail"]
     prev_step = None # previous step --> if prev_step=bus and step_key = tram then don't take base price again
 
+    # Catch division by 0
+    if np.sum(weights) == 0: 
+        weights = 5 * [1]
+    
     norm_weights = weights / np.sum(weights)
+
+
     out_dic = {}
     # check: duration in minutes, distances in km
     nonempty_keys = []  # if no car route can be found, then it is empty
