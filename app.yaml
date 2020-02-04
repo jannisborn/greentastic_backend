@@ -1,11 +1,10 @@
 runtime: python37
 env: standard
 entrypoint: gunicorn -b :$PORT app:app
-instance_class: B1
+instance_class: F1
 automatic_scaling:
-  min_num_instances: 0
-  max_num_instances: 1
-  idle_timeout: 1min
+  max_instances: 1
+  min_instances: 0
 resources:
   cpu: 0.5
   memory_gb: 0.5
