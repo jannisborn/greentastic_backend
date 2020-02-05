@@ -5,9 +5,10 @@
 
 <img align="right" src="https://github.com/jannisborn/greentastic/blob/master/assets/demo.jpeg" alt="demo" width="400"/>
 
-## Usage:
-* Download the [TestFlight iOS App](https://testflight.apple.com/join/qIDSZLzE)
-* Scroll to the bottom to get quick impressions.
+## Test version:
+(Scroll to the bottom to get quick impressions)
+* Download the [TestFlight iOS App](https://itunes.apple.com/us/app/testflight/id899247664?mt=8)
+* Click on the following link on your phone in order to get the Greentastic beta version from from the Testflight App: [https://testflight.apple.com/join/qIDSZLzE](https://testflight.apple.com/join/qIDSZLzE) 
 ## Code requirements:
 For full functionality (including own deployment) you need:
 * `XCode>=10`
