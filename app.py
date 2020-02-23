@@ -30,7 +30,6 @@ def query_directions():
     weighting = [
         float(i) for i in user_profile.get('weights').split(",")
     ]  # expects 'weights=1,1,1,1'
-    print("WEIGHTS", weighting)
 
     source = str(request.args.get('source'))
     destination = str(
