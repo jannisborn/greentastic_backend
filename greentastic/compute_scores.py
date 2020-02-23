@@ -4,11 +4,11 @@ import numpy as np
 from scipy.stats import rankdata
 
 
-def compute_emissions(distance, duration, infos, step_transport, is_repeated):
+def compute_emissions(distance, infos, **kwargs):
     return distance * infos['emissionsProKM']
 
 
-def compute_toxicity(distance, duration, infos, step_transport, is_repeated):
+def compute_toxicity(distance, infos, **kwargs):
     return distance * infos['toxicityPerKM']
 
 
@@ -19,18 +19,18 @@ def compute_price(distance, duration, infos, step_transport, is_repeated):
     elif ('priceKm' in infos and is_repeated):
         price = infos['priceKm'] * distance
     elif 'priceKm' in infos:
-        price = infos['base_price'] + infos[
-            'priceKm'] * distance  # public transport: base price + price per km
+        # public transport: base price + price per km
+        price = infos['base_price'] + infos['priceKm'] * distance
     else:  # then it is computed per minute
         price = infos['priceMin'] * duration
     return price
 
 
-def compute_calories(distance, duration, infos, step_transport, is_repeated):
+def compute_calories(duration, infos, **kwargs):
     return infos['caloriesPerMin'] * duration
 
 
-def compute_duration(distance, duration, infos, step_transport, is_repeated):
+def compute_duration(duration, step_transport, **kwargs):
     return duration
 
 
@@ -76,7 +76,7 @@ def compute_score(
     # normalize weights
     norm_weights = weights / np.sum(weights)
 
-    ## AVAILABLE TRANSPORT
+    # AVAILABLE TRANSPORT
     # filter which transport is actually possible! (e.g. no car route)
     dict_exist = [
         bool(
@@ -129,13 +129,22 @@ def compute_score(
             dist = dist_dic[step_key] * 0.001  # distance of this step per KM
             dur = dur_dic[step_key] / 60  # duration of this step per MIN
 
-            is_repeated = prev_step in base_price_once_transits and step_key in base_price_once_transits
+            is_repeated = (
+                prev_step in base_price_once_transits
+                and step_key in base_price_once_transits
+            )
+
+            args = {
+                'infos': info_dic[step_transport],
+                'duration': dur,
+                'distance': dist,
+                'step_transport': step_transport,
+                'is_repeated': is_repeated
+            }
 
             for k, crit in enumerate(CRITERIA):
-                crit_score = method_dict[crit](
-                    dist, dur, info_dic[step_transport], step_transport,
-                    is_repeated
-                )
+                crit_score = method_dict[crit](**args)
+
                 value_arr[i, k] += crit_score
 
             if step_key != 'walking':
@@ -156,8 +165,8 @@ def compute_score(
     # normalize to 0-1:
     norm_value_arr = normalize_value_arr(value_arr)
     if DEBUG:
-        print("absolute values (value_arr):")
-        print(value_arr.astype(int))
+        print("absolute values (value_arr) *100:")
+        print((np.round(value_arr, 2) * 100).astype(int))
         print(OUTPUT_TRANSPORT)
         for j, crit in enumerate(CRITERIA):
             print(crit, norm_value_arr[:, j])
