@@ -30,7 +30,21 @@ def compute_calories(duration, infos, **kwargs):
     return infos['caloriesPerMin'] * duration
 
 
-def compute_duration(duration, step_transport, **kwargs):
+def compute_duration(step_transport, distance, duration, **kwargs):
+
+    # sec -> min
+    duration *= 60
+
+    # Adjust the escooter/ebike pace away from the base pace (i.e. bike pace)
+    if step_transport == 'escooter':
+        # Assume the pace of a escooter to be 16 km/h
+        speed = 16
+        duration = distance * (60 / speed)
+    elif step_transport == 'ebike':
+        # Assume the pace of a escooter to be 23 km/h
+        speed = 23
+        duration = distance * (60 / speed)
+
     return duration
 
 
@@ -64,7 +78,7 @@ def compute_score(
     ]
     DEBUG = True
 
-    ## WEIGHTS:
+    # WEIGHTS:
     if DEBUG:
         print("weights:", weights)
     assert len(weights) == len(
@@ -97,7 +111,7 @@ def compute_score(
         'tram', 'bus', 'trolleybus', 'commuter_train', 'subway', 'metro_rail'
     ]
 
-    ## Fill array by absolute values for criteria
+    # Fill array by absolute values for criteria
     value_arr = np.zeros((len(OUTPUT_TRANSPORT), len(CRITERIA)))
     out_dict = dict()
     for i, transport in enumerate(OUTPUT_TRANSPORT):
@@ -126,8 +140,8 @@ def compute_score(
             else:  # step_key is now for example 'tram', maps_key is 'transit'
                 step_transport = step_key
             # compute distance and duration
-            dist = dist_dic[step_key] * 0.001  # distance of this step per KM
-            dur = dur_dic[step_key] / 60  # duration of this step per MIN
+            #dist = dist_dic[step_key] * 0.001  # distance of this step per KM
+            #dur = dur_dic[step_key] / 60  # duration of this step per MIN
 
             is_repeated = (
                 prev_step in base_price_once_transits
@@ -136,8 +150,8 @@ def compute_score(
 
             args = {
                 'infos': info_dic[step_transport],
-                'duration': dur,
-                'distance': dist,
+                'distance': dist_dic[step_key] * 0.001,  # m -> km
+                'duration': dur_dic[step_key],
                 'step_transport': step_transport,
                 'is_repeated': is_repeated
             }
@@ -146,13 +160,15 @@ def compute_score(
                 crit_score = method_dict[crit](**args)
 
                 value_arr[i, k] += crit_score
+                if crit == 'duration':
+                    args.update({'duration': crit_score})
 
             if step_key != 'walking':
                 prev_step = step_key
 
         # add absolute scores to output dict
         out_dict[transport] = {
-            CRITERIA[j]: value_arr[i, j]
+            CRITERIA[j]: np.around(value_arr[i, j], decimals=2)
             for j in range(len(CRITERIA))
         }
 
@@ -179,7 +195,7 @@ def compute_score(
     if DEBUG:
         print("total scores:", total_scores)
         print("colour indices for total scores:")
-    ## Add normalized scores and colours to out_dict
+    # Add normalized scores and colours to out_dict
     for i, transport in enumerate(OUTPUT_TRANSPORT):
         for j, crit in enumerate(CRITERIA):
             # add normalized scores to output
