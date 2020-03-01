@@ -17,7 +17,7 @@ https://www.foodspring.ch/kalorienverbrauch-tabelle
   * norwegian linear functions: https://www.researchgate.net/publication/241164152_The_relationship_between_travel_distance_and_fares_time_costs_and_generalized_costs_in_passenger_transport 
 
 
-## CO2 and NOx emissions
+## Environment
 * **Public transport**:
   * https://www.umweltbundesamt.de/themen/verkehr-laerm/emissionsdaten#verkehrsmittelvergleich_personenverkehr  
   * Including car, tram, train, bus.
