@@ -9,7 +9,7 @@ https://www.foodspring.ch/kalorienverbrauch-tabelle
 ## Prices: 
 * **Car**: https://www.tcs.ch/de/der-tcs/presse/medienmitteilungen/kilometerkostenstick.php
 * **E-bike**: http://www.velosuisse.ch/de/statistik_aktuell.html
-* **Velo**: 1250 https://www.velojournal.ch/pdfdownload.html?filename=2010_01/1000-Franken-Velos.pdf
+* **Bicycle**: https://www.spiegel.de/auto/aktuell/kostenvergleich-rad-gegen-auto-das-velo-ist-sieger-der-herzen-a-753206.html or https://turbohelden.de/kostet-eigentlich-radfahren/
 * **Taxi**: https://www.20min.ch/finance/news/story/So-teuer-ist-Taxifahren-in-Schweizer-Staedten-26519985
 
 * **Public Transport**:
