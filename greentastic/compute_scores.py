@@ -139,8 +139,6 @@ def compute_score(
             else:  # step_key is now for example 'tram', maps_key is 'transit'
                 step_transport = step_key
             # compute distance and duration
-            #dist = dist_dic[step_key] * 0.001  # distance of this step per KM
-            #dur = dur_dic[step_key] / 60  # duration of this step per MIN
 
             is_repeated = (
                 prev_step in base_price_once_transits
