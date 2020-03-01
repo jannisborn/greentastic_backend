@@ -33,7 +33,7 @@ def compute_calories(duration, infos, **kwargs):
 def compute_duration(step_transport, distance, duration, **kwargs):
 
     # sec -> min
-    duration *= 60
+    duration /= 60
 
     # Adjust the escooter/ebike pace away from the base pace (i.e. bike pace)
     if step_transport == 'escooter':
@@ -69,9 +69,8 @@ def compute_score(
         'duration': compute_duration
     }
     OUTPUT_TRANSPORT = [
-        'driving', 'taxi', 'walking', 'bicycling', 'escooter', 'ebike',
-        'transit'
-    ]
+        'driving', 'walking', 'bicycling', 'escooter', 'ebike', 'transit'
+    ]  # 'taxi',
     COLOURS = [
         [220, 20, 60], [255, 120, 71], [264, 184, 60], [173, 255, 47],
         [50, 205, 50]
@@ -159,9 +158,11 @@ def compute_score(
             for k, crit in enumerate(CRITERIA):
                 crit_score = method_dict[crit](**args)
 
-                value_arr[i, k] += crit_score
                 if crit == 'duration':
                     args.update({'duration': crit_score})
+                    value_arr[i, k] += crit_score * 60  # min -> s
+                else:
+                    value_arr[i, k] += crit_score
 
             if step_key != 'walking':
                 prev_step = step_key

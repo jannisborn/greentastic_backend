@@ -2,7 +2,7 @@
   "driving": {
     "price_benzin": 1.7,
     "base_price": 0,
-    "priceKm": 1.33,
+    "priceKm": 0.7,
     "emissionsProKM": {
       "Petrol": 0.19,
       "Diesel": 0.16,
@@ -36,7 +36,7 @@
   "bicycling": {
     "caloriesPerMin": 10,
     "base_price": 0,
-    "priceKm": 0.3,
+    "priceKm": 0.1,
     "emissionsProKM": 0.005,
     "toxicityPerKM": 0,
     "maps_key": "bicycling"
@@ -45,14 +45,14 @@
     "caloriesPerMin": 3.33,
     "priceMin": 0.15,
     "emissionsProKM": 0.1,
-    "toxicityPerKM": 0.05,
+    "toxicityPerKM": 0.04,
     "maps_key": "bicycling"
   },
   "ebike": {
     "caloriesPerMin": 7.33,
     "priceMin": 0.2,
     "emissionsProKM": 0.013,
-    "toxicityPerKM": 0.05,
+    "toxicityPerKM": 0.015,
     "maps_key": "bicycling"
   },
   "transit": {
