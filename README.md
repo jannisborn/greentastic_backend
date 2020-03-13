@@ -1,5 +1,5 @@
-<a href="https://www.patreon.com/user?u=31534628&fan_landing=true"><img src="https://img.shields.io/endpoint.svg?url=https://moshef9.wixsite.com/patreon-badge/_functions/badge/?username=31534628" alt="Patreon donate button" /> </a>
-<span class="badge-patreon"><a href="https://patreon.com/34660196" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-green.svg" alt="Patreon donate button" /></a></span>
+<a href="https://www.patreon.com/user?u=31534628&fan_landing=true"><img src="https://img.shields.io/endpoint.svg?url=https://moshef9.wixsite.com/patreon-badge/_functions/badge/?username=user?u=31534628&fan_landing=true" alt="Patreon donate button" /> </a> -->
+<span class="badge-patreon"><a href="https://www.patreon.com/user?u=31534628&fan_landing=true" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-green.svg" alt="Patreon donate button" /></a></span>
 
 <img align="right" width="100" height="100" src="https://github.com/jannisborn/clean_commuter/blob/ios_app/CleanConmute/AppIcon.appiconset/cleancommute_icon-76%402x.png">
 
