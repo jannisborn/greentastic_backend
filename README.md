@@ -4,6 +4,7 @@
 
 # Greentastic 
 ### A project created @Hack Zurich 2019
+Contributors: [Raul Catena](https://github.com/RaulCatena), [Nina Wiedemann](https://github.com/NinaWie), [Mikkel Schöttner](https://github.com/mschoettner), [Jannis Born](https://github.com/jannisborn)
 
 <img align="right" src="https://github.com/jannisborn/greentastic/blob/master/assets/demo.jpeg" alt="demo" width="400"/>
 
