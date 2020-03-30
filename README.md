@@ -1,12 +1,12 @@
 [![Build Status](https://api.travis-ci.com/jannisborn/greentastic.svg?branch=master)](https://travis-ci.com/github/jannisborn/greentastic) <a href="https://www.patreon.com/user?u=31534628&fan_landing=true"><img src="https://img.shields.io/endpoint.svg?url=https://moshef9.wixsite.com/patreon-badge/_functions/badge/?username=user?u=31534628&fan_landing=true" alt="Patreon donate button" /> </a><span class="badge-patreon"><a href="https://www.patreon.com/user?u=31534628&fan_landing=true" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-green.svg" alt="Patreon donate button" /></a></span>
 
-<img align="right" width="100" height="100" src="https://github.com/jannisborn/blob/master/app_icon.jpg">
+<img align="right" width="100" height="100" src="https://github.com/jannisborn/greentastic_backend/blob/master/assets/app_icon.png">
 
 # Greentastic 
 ### A project created @Hack Zurich 2019
 Contributors: [Raul Catena](https://github.com/RaulCatena), [Nina Wiedemann](https://github.com/NinaWie), [Mikkel Schöttner](https://github.com/mschoettner), [Jannis Born](https://github.com/jannisborn)
 
-<img align="right" src="https://github.com/jannisborn/greentastic/blob/master/small_screenshots/overview.png" alt="demo" width="400"/>
+<img align="right" src="https://github.com/jannisborn/greentastic/blob/master/assets/small_screenshots/overview.png" alt="overview" width="400"/>
 
 ### Download Greentastic from the [iOS AppStore](https://apps.apple.com/us/app/greentastic/id1494062757?ls=1).
 
