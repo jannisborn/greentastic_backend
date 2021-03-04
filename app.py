@@ -44,15 +44,21 @@ def query_directions():
 
     # Car type can be any of {"Petrol", "Diesel", "Electric"}
     car_type = request.args.get('car_type', "Petrol")
-    metadata['driving']['emissionsProKM'] = (
-        metadata['driving']['emissionsProKM'][car_type]
-    )
-    metadata['driving']['toxicityPerKM'] = (
-        metadata['driving']['toxicityPerKM'][car_type]
-    )
+    if car_type != "None":
+        metadata['driving']['emissionsProKM'] = (
+            metadata['driving']['emissionsProKM'][car_type]
+        )
+        metadata['driving']['toxicityPerKM'] = (
+            metadata['driving']['toxicityPerKM'][car_type]
+        )
 
     # Compute scores from google maps data
-    out_dic = compute_score(metadata, googlemapsdic, weights=weighting)
+    out_dic = compute_score(
+        metadata,
+        googlemapsdic,
+        has_car=(car_type != "None"),
+        weights=weighting
+    )
     return jsonify(out_dic)  # return json file
 
 

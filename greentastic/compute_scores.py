@@ -49,7 +49,10 @@ def compute_duration(step_transport, distance, duration, **kwargs):
 
 
 def compute_score(
-    info_dic: dict, maps_dic: dict, weights: list = [1, 1, 1, 1, 1]
+    info_dic: dict,
+    maps_dic: dict,
+    has_car: bool = True,
+    weights: list = [1, 1, 1, 1, 1]
 ):
     """ 
     TODO: This methods needs some refactoring (see #5).
@@ -68,11 +71,12 @@ def compute_score(
         'calories': compute_calories,
         'duration': compute_duration
     }
-    OUTPUT_TRANSPORT = [
-        'driving', 'walking', 'bicycling', 'escooter', 'ebike', 'transit'
-    ]  # 'taxi',
+    OUTPUT_TRANSPORT = ['walking', 'bicycling', 'escooter', 'ebike', 'transit']
+    if has_car:
+        OUTPUT_TRANSPORT.insert(0, "driving")
+
     COLOURS = [
-        [220, 20, 60], [255, 120, 71], [264, 184, 60], [173, 255, 47],
+        [220, 30, 60], [255, 120, 71], [264, 184, 60], [173, 255, 47],
         [50, 205, 50]
     ]
     DEBUG = True

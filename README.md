@@ -1,4 +1,4 @@
-[![Build Status](https://api.travis-ci.com/jannisborn/greentastic.svg?branch=master)](https://travis-ci.com/github/jannisborn/greentastic) <a href="https://www.patreon.com/user?u=31534628&fan_landing=true"><img src="https://img.shields.io/endpoint.svg?url=https://moshef9.wixsite.com/patreon-badge/_functions/badge/?username=user?u=31534628&fan_landing=true" alt="Patreon donate button" /> </a><span class="badge-patreon"><a href="https://www.patreon.com/user?u=31534628&fan_landing=true" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-green.svg" alt="Patreon donate button" /></a></span>
+[![Build Status](https://api.travis-ci.com/jannisborn/greentastic_backend.svg?branch=master)](https://travis-ci.com/github/jannisborn/greentastic_backend) <a href="https://www.patreon.com/user?u=31534628&fan_landing=true"><img src="https://img.shields.io/endpoint.svg?url=https://moshef9.wixsite.com/patreon-badge/_functions/badge/?username=user?u=31534628&fan_landing=true" alt="Patreon donate button" /> </a><span class="badge-patreon"><a href="https://www.patreon.com/user?u=31534628&fan_landing=true" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-green.svg" alt="Patreon donate button" /></a></span>
 
 <img align="right" width="100" height="100" src="https://github.com/jannisborn/greentastic_backend/blob/master/assets/app_icon.png">
 
@@ -10,12 +10,9 @@ Contributors: [Raul Catena](https://github.com/RaulCatena), [Nina Wiedemann](htt
 
 ### Download Greentastic from the [iOS AppStore](https://apps.apple.com/us/app/greentastic/id1494062757?ls=1).
 
-#### Greentastic is also part of the [Yooweedoo Ideenwettbewerb 2020](https://www.yooweedoo.org/de/projekt/greentastic)
-
-
 If you want to give feedback about the app you can contact us anytime:
 * Nina Wiedemann - ninawiedemann999 [at] gmail.com
-* Raul Catena - email upon request
+* Raul Catena 
 * Jannis Born - jannis.born [at] gmx.de
 
 If you want to contribute to the code base, have a look at [instructions](instructions.md).
