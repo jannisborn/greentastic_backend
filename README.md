@@ -1,4 +1,6 @@
-[![Build Status](https://api.travis-ci.com/jannisborn/greentastic_backend.svg?branch=master)](https://travis-ci.com/github/jannisborn/greentastic_backend) <a href="https://www.patreon.com/user?u=31534628&fan_landing=true"><img src="https://img.shields.io/endpoint.svg?url=https://moshef9.wixsite.com/patreon-badge/_functions/badge/?username=user?u=31534628&fan_landing=true" alt="Patreon donate button" /> </a><span class="badge-patreon"><a href="https://www.patreon.com/user?u=31534628&fan_landing=true" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-green.svg" alt="Patreon donate button" /></a></span>
+[![Build status](https://github.com/jannisborn/greentastic_backend/actions/workflows/build.yml/badge.svg)](https://github.com/jannisborn/greentastic_backend/actions/workflows/build.yml)
+
+<a href="https://www.patreon.com/user?u=31534628&fan_landing=true"><img src="https://img.shields.io/endpoint.svg?url=https://moshef9.wixsite.com/patreon-badge/_functions/badge/?username=user?u=31534628&fan_landing=true" alt="Patreon donate button" /> </a><span class="badge-patreon"><a href="https://www.patreon.com/user?u=31534628&fan_landing=true" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-green.svg" alt="Patreon donate button" /></a></span>
 
 <img align="right" width="100" height="100" src="https://github.com/jannisborn/greentastic_backend/blob/master/assets/app_icon.png">
 
